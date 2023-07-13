@@ -1,25 +1,7 @@
-const {
-    EventEmitter
-} = require('events')
+const fs = require('fs');
 
-const myEventEmitter = new EventEmitter()
+const writableStream = fs.createWriteStream('output.txt');
 
-const makeCoffe = ({
-    name
-}) => {
-    console.log(`Kopi ${name} telah dibuat!`);
-}
-
-const makeBill = ({
-    price
-}) => {
-    console.log(`Bil sebesar ${price} telah dibuat!`);
-}
-
-myEventEmitter.on('coffee-order', makeCoffe)
-myEventEmitter.on('coffee-order', makeBill)
-
-myEventEmitter.emit('coffee-order', {
-    name: 'Tubruk',
-    price: 15000
-})
+writableStream.write('Ini merupakan teks baris pertama!\n');
+writableStream.write('Ini merupakan teks baris kedua!\n');
+writableStream.end('Akhir dari writable stream!');
