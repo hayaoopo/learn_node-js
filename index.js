@@ -1,5 +1,5 @@
-const message = (name) => {
-    console.log(`Hello ${name}`);
-};
+const moment = require('moment')
 
-message('Javascript')
+const date = moment().format("MMM Do YY")
+
+console.log(date);
